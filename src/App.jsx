@@ -1,14 +1,29 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [state, setState] = useState({
+    good:0,
+    bad:0,
+    neutral:0
+  })
 
   return (
     <>
-     
+    <div>
+    <h1>give feedback</h1>
+      <button onClick={()=>{setState(prev=>{ return {...prev,["good"]:state.good + 1}})}}>good</button>
+      <button onClick={()=>{setState(prev=>{ return {...prev,["neutral"]:state.neutral + 1}})}} >neutral</button>
+      <button onClick={()=>{setState(prev=>{ return {...prev,["bad"]:state.bad + 1}})}} >bad</button>
+    </div>
+    <div>
+      <h1>Statitics</h1>
+      <div>good {state.good}</div>
+      <div>neutral {state.neutral}</div>
+      <div>bad {state.bad}</div>
+    </div>
+      
     </>
   )
 }
