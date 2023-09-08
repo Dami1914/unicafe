@@ -9,6 +9,10 @@ function App() {
     neutral:0
   })
 
+  const all = state.good + state.bad + state.neutral
+  const average = all/3
+  const positive = isNaN(state.good /all * 100)?0:state.good /all * 100
+
   return (
     <>
     <div>
@@ -22,6 +26,9 @@ function App() {
       <div>good {state.good}</div>
       <div>neutral {state.neutral}</div>
       <div>bad {state.bad}</div>
+      <div>all {all}</div>
+      <div>average {average}</div>
+      <div>positive {positive}</div>
     </div>
       
     </>
