@@ -1,6 +1,18 @@
 import { useState } from 'react'
 
-
+function Statitics({good,bad,neutral,average,positive,all}){
+  return(
+      <>
+      <h1>Statitics</h1>
+      <div>good {good}</div>
+      <div>neutral {neutral}</div>
+      <div>bad {bad}</div>
+      <div>all {all}</div>
+      <div>average {average}</div>
+      <div>positive {positive}</div>
+      </>
+  )
+}
 
 function App() {
   const [state, setState] = useState({
@@ -22,13 +34,7 @@ function App() {
       <button onClick={()=>{setState(prev=>{ return {...prev,["bad"]:state.bad + 1}})}} >bad</button>
     </div>
     <div>
-      <h1>Statitics</h1>
-      <div>good {state.good}</div>
-      <div>neutral {state.neutral}</div>
-      <div>bad {state.bad}</div>
-      <div>all {all}</div>
-      <div>average {average}</div>
-      <div>positive {positive}</div>
+      <Statitics good={state.good} neutral={state.neutral} bad={state.bad} all={all} positive={positive} average={average}/>
     </div>
       
     </>
