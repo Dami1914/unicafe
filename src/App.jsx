@@ -15,7 +15,14 @@ function StatiticsLine({value,text}){
 
   return(
     <>
-      <div>{text} {value} </div>
+      <table>
+        <tbody>
+          <tr>
+            <th style={{width:"100px", display:"flex", justifyContent:"flex-start"}}>{text}</th>
+            <td>{value}</td>
+          </tr>
+        </tbody>
+      </table>
     </>
   )
 }
@@ -28,7 +35,7 @@ function Statitics({good,bad,neutral,average,positive,all}){
         <StatiticsLine text="bad" value={bad}/>
         <StatiticsLine text="all" value={all}/>
         <StatiticsLine text="average" value={average}/>
-        <StatiticsLine text="positive" value={positive}/>
+        <StatiticsLine text="positive" value={positive} />
       </>
   )
 }
@@ -42,7 +49,7 @@ function App() {
 
   const all = state.good + state.bad + state.neutral
   const average = all/3
-  const positive = isNaN(state.good /all * 100)?0:state.good /all * 100
+  const positive = isNaN(state.good /all * 100)?0:`${state.good /all * 100 } % `
 
   return (
     <>
