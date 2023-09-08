@@ -3,7 +3,6 @@ import { useState } from 'react'
 function Statitics({good,bad,neutral,average,positive,all}){
   return(
       <>
-      <h1>Statitics</h1>
       <div>good {good}</div>
       <div>neutral {neutral}</div>
       <div>bad {bad}</div>
@@ -34,7 +33,11 @@ function App() {
       <button onClick={()=>{setState(prev=>{ return {...prev,["bad"]:state.bad + 1}})}} >bad</button>
     </div>
     <div>
+    <h1>Statitics</h1>
+      { all < 1 ? 
+      <h2>No feedback given</h2>:
       <Statitics good={state.good} neutral={state.neutral} bad={state.bad} all={all} positive={positive} average={average}/>
+      }
     </div>
       
     </>
